@@ -1,24 +1,103 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html>
 <head>
-  <title>Random Website</title>
+  <style>
+  
+  #jumpscare {position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; cursor: pointer; visibility: hidden;}
+  
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    
+    .form-group {
+      margin-bottom: 10px;
+    }
+    
+    label {
+      display: block;
+      font-weight: bold;
+    }
+    
+    input[type="text"] {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      width: 200px;
+    }
+    
+    button[type="submit"] {
+      padding: 8px 16px;
+      font-size: 16px;
+      background-color: #4caf50;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .message {
+      margin-top: 20px;
+      display: none;
+      color: #4caf50;
+      font-weight: bold;
+    }
+  </style>
 </head>
-<style>
-#jumpscare {position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; cursor: pointer; visibility: hidden;}
-</style>
 <body>
-<input type="button" onclick="jumpscare();" value="click me"/>
-<img id="jumpscare" src="./jumpscare.jpg"/>
-<audio id="scream" src="./jumpscareAudio.mp3"/>
-<script>
-function jumpscare() {
-var jumpscare = document.getElementById("jumpscare");
-jumpscare.style.visibility="visible";
-var audio = document.getElementById("scream");
-  audio.play();
-}
-</script>
+  
+  <div class="container">
+    <h2>Verifica</h2>
+    <h3>VIETATO ISPEZIONARE IL CODICE SORGENTE</h3>
+    <form onsubmit="checkCode(event)">
+      <div class="form-group">
+        <p for="codeInput">Il codice è il numero dell'episodio seguito dal numero di elementi rubati</p>
+        <input type="text" id="codeInput" placeholder="Enter code" />
+      </div>
+      <button type="submit">Verifica</button>
+    </form>
+    <p class="message" id="successMessage">+rpKShHtiTwpkM2Y0</p>
+  </div>
+  <img id="jumpscare" src="./jumpscare.jpg"/>
+  <audio id="scream" src="./jumpscareAudio.mp3"/>
 
+  <script>
+  
+      function jumpscare() {
+      var jumpscare = document.getElementById("jumpscare");
+      jumpscare.style.visibility="visible";
+      var audio = document.getElementById("scream");
+        audio.play();
+      }
 
+    function checkCode(event) {
+      event.preventDefault(); // Prevent form submission
+
+      var codeInput = document.getElementById("codeInput");
+      var successMessage = document.getElementById("successMessage");
+
+      if (codeInput.value === "212") {
+        successMessage.style.display = "block";
+      } else {
+        jumpscare();
+        successMessage.style.display = "none";
+      }
+    }
+  </script>
 </body>
-
 </html>
+
