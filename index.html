@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  
+  #jumpscare {position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; cursor: pointer; visibility: hidden;}
+  
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    
+    .form-group {
+      margin-bottom: 10px;
+    }
+    
+    label {
+      display: block;
+      font-weight: bold;
+    }
+    
+    input[type="text"] {
+      padding: 8px;
+      font-size: 16px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      width: 200px;
+    }
+    
+    button[type="submit"] {
+      padding: 8px 16px;
+      font-size: 16px;
+      background-color: #4caf50;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .message {
+      margin-top: 20px;
+      display: none;
+      color: #4caf50;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container" id="sol">
+    <h2>Verifica</h2>
+    <h3>VIETATO ISPEZIONARE IL CODICE SORGENTE</h3>
+    <form onsubmit="checkCode(event)">
+      <div class="form-group">
+        <p for="codeInput">Il codice è il numero dell'episodio seguito dal numero di elementi rubati</p>
+        <input type="text" id="codeInput" placeholder="Enter code" />
+      </div>
+      <button type="submit">Verifica</button>
+    </form>
+  </div>
+  <img id="jumpscare" src="./cuteCat.jpeg"/>
+  <audio id="scream" src="./catAudio.mp3"/>
+
+  <script type="text/javascript" src="logic.js"></script>
+</body>
+</html>
+
